@@ -57,6 +57,7 @@ def create_accounts():
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
 
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """
@@ -93,7 +94,6 @@ def get_accounts(account_id):
     return account.serialize(), status.HTTP_200_OK
 
 
-
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
 def update_accounts(account_id):
     app.logger.info("Request to update an Account with id: %s", account_id)
@@ -104,6 +104,7 @@ def update_accounts(account_id):
     account.update()
 
     return account.serialize(), status.HTTP_200_OK
+
 
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])
 def delete_accounts(account_id):
